@@ -5,18 +5,17 @@
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
     <div class="collapse navbar-collapse" id="nav-bar">
-      <ul class="navbar-nav mr-auto"></ul>
-      <ul class="navbar-nav">
+      <ul class="nav navbar-nav mr-auto">
         @if (Auth::check())
           <li class="nav-item">{!! link_to_route('users.index', 'Users',[], ['class' => 'nav-link']) !!}</li>
-          <li class="nav-item dropdown'>
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="btn" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+            
             <ul class="dropdown-menu dropdown-menu-right">
-              <li{!! link_to_route('users.show', 'My profile', ['id' => Auth::id()]) !!}<li>
-              <li role="separator" class="driver"></li>
-              <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+              <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::id()]) !!}</li>
+              <li class="dropdown-divider"></li>
+              <li>{!! link_to_route('logout.get', 'Logout') !!}</li>
             </ul>
           </li>
         @else
