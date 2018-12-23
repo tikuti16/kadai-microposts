@@ -13,6 +13,7 @@
       </div>
       @include('user_follow.follow_button', ['user' => $user])
     </aside>
+    <div class="col-sm-8">
       @include('users.navtabs', ['user' => $user])
       @include('users.users', ['users' => $users])
     </div>
